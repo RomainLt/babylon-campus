@@ -27,7 +27,7 @@ Arena = function(game) {
     // });
 
     // The first parameter can be set to null to load all meshes and skeletons
-    BABYLON.SceneLoader.ImportMesh(null, "./obj/", "PlanWithTextures.obj", scene, function (meshes, particleSystems, skeletons) {
+    BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan.obj", scene, function (meshes, particleSystems, skeletons) {
         // do something with the meshes and skeletons
         // particleSystems are always null for glTF assets
         for(mesh of meshes){
