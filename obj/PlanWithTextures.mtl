@@ -1,0 +1,35 @@
+# Blender MTL File: 'Plan.blend'
+# Material Count: 3
+
+newmtl Material
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd -s 30.000000 30.000000 30.000000 textures\\creative-temp-.jpg
+
+newmtl SVGMat.001
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd -s 5.000000 5.000000 5.000000 textures\\Conrete+that+is+cracked+texture+seamless.jpg
+
+newmtl SVGMat.002
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.076454 0.284338 0.476989
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\\Conrete+that+is+cracked+texture+seamless.jpg
