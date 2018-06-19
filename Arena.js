@@ -1,46 +1,63 @@
 Arena = function(game) {
-    // Appel des variables nécéssaires
-    this.game = game;
-    var scene = game.scene;
+  // Appel des variables nécéssaires
+  this.game = game
+  var scene = game.scene
 
-    // Création de notre lumière principale
-    var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+  // Création de notre lumière principale
+  var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene)
+  var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(-100, -200, -10), scene)
+  light1.intensity = 5
+  var light2 = new BABYLON.PointLight("pointLight2", new BABYLON.Vector3(100, 200, 10), scene)
 
-    // Ajoutons un sol pour situer la sphere dans l'espace
-    //var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
+  // Ajoutons un sol pour situer la sphere dans l'espace
+  //var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 
-    var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, scene);
-    var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-    skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox/skybox", scene);
-    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-    skybox.material = skyboxMaterial;
+  var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene)
+  var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene)
+  skyboxMaterial.backFaceCulling = false
+  skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox/skybox", scene)
+  skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE
+  skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0)
+  skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0)
+  skybox.material = skyboxMaterial
+  var audio = new Audio("./audio/windows.wav")
+  var door = BABYLON.MeshBuilder.CreateBox("box", { height: 2, width: 1, size: 0.1 }, scene)
+  door.position = new BABYLON.Vector3(-30, 1, -15)
+  var matDoor = new BABYLON.StandardMaterial("matdoor", scene)
+  matDoor.diffuseColor = new BABYLON.Color3(0.1, 0.1, 1)
+  door.material = matDoor
+  door.checkCollisions = true
+  door.actionManager = new BABYLON.ActionManager(scene)
+  door.actionManager.registerAction(
+    new BABYLON.ExecuteCodeAction(
+      {
+        trigger: BABYLON.ActionManager.OnPickTrigger,
+        parameter: "r"
+      },
+      function() {
+        var i = 0
+        setTimeout(() => {
+          door.rotation.y -= 0.1
+        }, 500)
+      }
+    )
+  )
+  scene.gravity = new BABYLON.Vector3(0, -9.81, 0)
+  // The first parameter can be set to null to load all meshes and skeletons
+  // BABYLON.SceneLoader.Append("./obj/", "Plan.obj", scene, function (scene) {
+  //     // do something with the scene
 
-    scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+  // });
 
-    var audio = new Audio('./audio/windows.wav')
-    // audio.play()
-
-    // The first parameter can be set to null to load all meshes and skeletons
-    // BABYLON.SceneLoader.Append("./obj/", "Plan.obj", scene, function (scene) {
-    //     // do something with the scene
-
-    // });
-
-    // The first parameter can be set to null to load all meshes and skeletons
-    BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan.obj", scene, function (meshes, particleSystems, skeletons) {
-        // do something with the meshes and skeletons
-        // particleSystems are always null for glTF assets
-        for(mesh of meshes){
-            // console.log(mesh);
-            console.log("ok")
-            mesh.checkCollisions = true;
-            mesh.actionManager = new BABYLON.ActionManager(scene);
-            mesh.actionManager.registerAction(new BABYLON.PlaySoundAction
-                (BABYLON.ActionManager.OnPickTrigger, audio))
-        }
-
-    });
-};
+  // The first parameter can be set to null to load all meshes and skeletons
+  BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan.obj", scene, function(meshes, particleSystems, skeletons) {
+    // do something with the meshes and skeletons
+    // particleSystems are always null for glTF assets
+    for (mesh of meshes) {
+      console.log(mesh)
+      mesh.checkCollisions = true
+      mesh.actionManager = new BABYLON.ActionManager(scene)
+      mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
+    }
+  })
+}
