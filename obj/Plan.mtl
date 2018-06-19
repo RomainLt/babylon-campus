@@ -1,5 +1,5 @@
 # Blender MTL File: 'Plan.blend'
-# Material Count: 6
+# Material Count: 10
 
 newmtl Herbe
 Ns 96.078431
@@ -10,7 +10,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd -s 30.000000 30.000000 30.000000 textures\\creative-temp-.jpg
+map_Kd d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\creative-temp-.jpg
+
+newmtl Herbe_creative-temp-.jpg
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\creative-temp-.jpg
 
 newmtl Parpaings
 Ns 96.078431
@@ -21,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd textures\Conrete+that+is+cracked+texture+seamless.jpg
+map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\Conrete+that+is+cracked+texture+seamless.jpg
 
 newmtl Parpaings_NONE
 Ns 96.078431
@@ -32,7 +43,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd -s 7.500000 7.500000 7.500000 textures\\brick-wall-texture0014.jpg
+map_Kd d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\brick-wall-texture0014.jpg
+
+newmtl Parpaings_brick-wall-texture0014.jpg
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\brick-wall-texture0014.jpg
 
 newmtl SVGMat.002
 Ns 96.078431
@@ -43,7 +65,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd textures\Conrete+that+is+cracked+texture+seamless.jpg
+map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\Conrete+that+is+cracked+texture+seamless.jpg
 
 newmtl SVGMat.002_NONE
 Ns 96.078431
@@ -64,4 +86,24 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd -s 10.000000 10.000000 10.000000 textures\\Conrete+that+is+cracked+texture+seamless.jpg
+map_Kd -s 10.000000 10.000000 10.000000 d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\Conrete+that+is+cracked+texture+seamless.jpg
+
+newmtl _100001
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.671000 0.663000 0.671000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl _100002
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.039000 0.035000 0.031000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
