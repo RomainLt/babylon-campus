@@ -9,8 +9,13 @@ Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
+<<<<<<< HEAD
 illum 2
 map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\f__lockwood_texture_stock_by_redwolf518stock-d7kpnfj.jpg
+=======
+illum 1
+map_Kd textures\creative-temp-.jpg
+>>>>>>> b7eca5443c7240ce27014a7828fb11eb9e2800e9
 
 newmtl Herbe
 Ns 96.078431
@@ -21,7 +26,6 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\creative-temp-.jpg
 
 newmtl Parpaings
 Ns 96.078431
@@ -32,7 +36,11 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+<<<<<<< HEAD
 map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\brick-wall-texture0014.jpg
+=======
+map_Kd textures\Conrete+that+is+cracked+texture+seamless.jpg
+>>>>>>> b7eca5443c7240ce27014a7828fb11eb9e2800e9
 
 newmtl Parpaings_Conrete+that+is+cracked+texture+seamless.jpg
 Ns 96.078431
@@ -43,7 +51,11 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+<<<<<<< HEAD
 map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\Conrete+that+is+cracked+texture+seamless.jpg
+=======
+map_Kd textures\brick-wall-texture0014.jpg
+>>>>>>> b7eca5443c7240ce27014a7828fb11eb9e2800e9
 
 newmtl Parpaings_NONE
 Ns 96.078431
@@ -54,7 +66,11 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+<<<<<<< HEAD
 map_Kd d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\brick-wall-texture0014.jpg
+=======
+map_Kd textures\brick-wall-texture0014.jpg
+>>>>>>> b7eca5443c7240ce27014a7828fb11eb9e2800e9
 
 newmtl SVGMat.002
 Ns 96.078431
@@ -65,6 +81,20 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+<<<<<<< HEAD
+=======
+map_Kd textures\Conrete+that+is+cracked+texture+seamless.jpg
+
+newmtl SVGMat.002_NONE
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.076454 0.284338 0.476989
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+>>>>>>> b7eca5443c7240ce27014a7828fb11eb9e2800e9
 
 newmtl Sol
 Ns 96.078431
@@ -75,7 +105,6 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd -s 10.000000 10.000000 10.000000 d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\Conrete+that+is+cracked+texture+seamless.jpg
 
 newmtl _100001
 Ns 96.078431
