@@ -21,7 +21,12 @@ Arena = function(game) {
   skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0)
   skybox.material = skyboxMaterial
   var audio = new Audio("./audio/windows.wav")
+
   var door = BABYLON.MeshBuilder.CreateBox("box", { height: 2, width: 1, size: 0.1 }, scene)
+  //   var hinge = BABYLON.MeshBuilder.CreateBox("hinge", {}, scene)
+  var hinge = new BABYLON.TransformNode("root")
+  hinge.parent = scene
+  hinge.position = new BABYLON.Vector3(-29.5, 1, -15)
   door.position = new BABYLON.Vector3(-30, 1, -15)
   var matDoor = new BABYLON.StandardMaterial("matdoor", scene)
   matDoor.diffuseColor = new BABYLON.Color3(0.1, 0.1, 1)
@@ -35,10 +40,48 @@ Arena = function(game) {
         parameter: "r"
       },
       function() {
-        var i = 0
-        setTimeout(() => {
-          door.rotation.y -= 0.1
-        }, 500)
+        var pickResult = scene.pick(scene.pointerX, scene.pointerY)
+        console.log(pickResult.hit)
+        if (pickResult.hit) {
+          var frameRate = 20
+          var sweep = new BABYLON.Animation(
+            "sweep",
+            "rotation.y",
+            frameRate,
+            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+          )
+
+          var sweep_keys = []
+
+          sweep_keys.push({
+            frame: 0,
+            value: 0
+          })
+
+          sweep_keys.push({
+            frame: 3 * frameRate,
+            value: 0
+          })
+
+          sweep_keys.push({
+            frame: 5 * frameRate,
+            value: Math.PI / 3
+          })
+
+          sweep_keys.push({
+            frame: 13 * frameRate,
+            value: Math.PI / 3
+          })
+
+          sweep_keys.push({
+            frame: 15 * frameRate,
+            value: 0
+          })
+
+          sweep.setKeys(sweep_keys)
+          scene.beginDirectAnimation(hinge, [sweep], 0, 25 * frameRate, false)
+        }
       }
     )
   )
