@@ -10,22 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-<<<<<<< HEAD
-map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\f__lockwood_texture_stock_by_redwolf518stock-d7kpnfj.jpg
-
-newmtl GreenPaint_NONE
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.165690 0.640000 0.073323
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\f__lockwood_texture_stock_by_redwolf518stock-d7kpnfj.jpg
-=======
 map_Kd textures\f__lockwood_texture_stock_by_redwolf518stock-d7kpnfj.jpg
->>>>>>> 242aa34ee80095edb0fb9bc2d3c03a42815c154e
 
 newmtl Herbe
 Ns 96.078431
@@ -36,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\creative-temp-.jpg
+map_Kd textures\creative-temp-.jpg
 
 newmtl None
 Ns 0.000000
@@ -67,11 +52,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-<<<<<<< HEAD
-map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\brick-wall-texture0014.jpg
-=======
 map_Kd textures\brick-wall-texture0014.jpg
->>>>>>> 242aa34ee80095edb0fb9bc2d3c03a42815c154e
 
 newmtl Parpaings_Conrete+that+is+cracked+texture+seamless.jpg
 Ns 96.078431
@@ -82,11 +63,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-<<<<<<< HEAD
-map_Kd d:\Users\Hakua\Documents\EPSI\Modelisation 3D\textures\Conrete+that+is+cracked+texture+seamless.jpg
-=======
 map_Kd textures\Conrete+that+is+cracked+texture+seamless.jpg
->>>>>>> 242aa34ee80095edb0fb9bc2d3c03a42815c154e
 
 newmtl Parpaings_NONE
 Ns 96.078431
@@ -97,11 +74,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-<<<<<<< HEAD
-map_Kd d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\brick-wall-texture0014.jpg
-=======
 map_Kd textures\brick-wall-texture0014.jpg
->>>>>>> 242aa34ee80095edb0fb9bc2d3c03a42815c154e
 
 newmtl SVGMat.002
 Ns 96.078431
@@ -122,7 +95,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd -s 10.000000 10.000000 10.000000 d:\\Users\\Hakua\\Documents\\EPSI\\Modelisation 3D\\textures\\Conrete+that+is+cracked+texture+seamless.jpg
+map_Kd -s 10.000000 10.000000 10.000000 textures\Conrete+that+is+cracked+texture+seamless.jpg
 
 newmtl _100001
 Ns 96.078431
