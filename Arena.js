@@ -4,10 +4,10 @@ Arena = function(game) {
   var scene = game.scene
 
   // Création de notre lumière principale
-  var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(10, 1, 10), scene)
-  var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(-100, -200, -10), scene)
+  var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene)
+  var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(-50, -100, -5), scene)
   light1.intensity = 5
-  var light2 = new BABYLON.PointLight("pointLight2", new BABYLON.Vector3(100, 200, 10), scene)
+  var light2 = new BABYLON.PointLight("pointLight2", new BABYLON.Vector3(50, 100, 5), scene)
   // Ajoutons un sol pour situer la sphere dans l'espace
   //var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
   // Ajoutons un sol pour situer la sphere dans l'espace
@@ -87,19 +87,16 @@ Arena = function(game) {
     )
   )
   scene.gravity = new BABYLON.Vector3(0, -9.81, 0)
-  // The first parameter can be set to null to load all meshes and skeletons
-  // BABYLON.SceneLoader.Append("./obj/", "Plan.obj", scene, function (scene) {
-  //     // do something with the scene
-
-  // });
 
   // The first parameter can be set to null to load all meshes and skeletons
 
-  BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan.obj", scene, function(meshes, particleSystems, skeletons) {
+  BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan2.obj", scene, function(meshes, particleSystems, skeletons) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
     for (mesh of meshes) {
       //   console.log(mesh)
+      mesh.scaling.x = -1
+      mesh.scaling.z = -1
       mesh.checkCollisions = true
       mesh.actionManager = new BABYLON.ActionManager(scene)
       mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
