@@ -4,7 +4,7 @@ Arena = function(game) {
   var scene = game.scene
 
   // Création de notre lumière principale
-  var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene)
+  var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(10, 1, 10), scene)
   var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(-100, -200, -10), scene)
   light1.intensity = 5
   var light2 = new BABYLON.PointLight("pointLight2", new BABYLON.Vector3(100, 200, 10), scene)
@@ -42,7 +42,7 @@ Arena = function(game) {
       },
       function() {
         var pickResult = scene.pick(scene.pointerX, scene.pointerY)
-        console.log(pickResult.hit)
+        // console.log(pickResult.hit)
         if (pickResult.hit) {
           var frameRate = 20
           var sweep = new BABYLON.Animation(
@@ -99,7 +99,7 @@ Arena = function(game) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
     for (mesh of meshes) {
-      console.log(mesh)
+      //   console.log(mesh)
       mesh.checkCollisions = true
       mesh.actionManager = new BABYLON.ActionManager(scene)
       mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
