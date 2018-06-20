@@ -21,13 +21,6 @@ Arena = function(game) {
     scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
 
     var audio = new Audio('./audio/windows.wav')
-    // audio.play()
-
-    // The first parameter can be set to null to load all meshes and skeletons
-    // BABYLON.SceneLoader.Append("./obj/", "Plan.obj", scene, function (scene) {
-    //     // do something with the scene
-
-    // });
 
     // The first parameter can be set to null to load all meshes and skeletons
     BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan.obj", scene, function (meshes, particleSystems, skeletons) {
@@ -35,7 +28,6 @@ Arena = function(game) {
         // particleSystems are always null for glTF assets
         for(mesh of meshes){
             // console.log(mesh);
-            console.log("ok")
             mesh.checkCollisions = true;
             mesh.actionManager = new BABYLON.ActionManager(scene);
             mesh.actionManager.registerAction(new BABYLON.PlaySoundAction
