@@ -7,8 +7,21 @@ Game = function(canvasId) {
     // On initie la scène avec une fonction associé à l'objet Game
     this.scene = this._initScene(engine);
 
-    // var music = new BABYLON.Sound("Music", "./audio/BrokeForFree-SummerSpliffs.mp3", _this.scene, null, { loop: true, autoplay: true });
-    // music.volume = 0.2
+    var music = new BABYLON.Sound("Music", "./audio/BrokeForFree-SummerSpliffs.mp3", _this.scene, null, { loop: true, autoplay: true });
+    music.volume = 0.2
+    console.log(music)
+
+    window.addEventListener("keydown", function(e) {
+        switch (e.keyCode) {
+          case 77: // m
+            if(music.isPaused){
+                music.play()
+            }else{
+                music.pause()
+            }
+            break
+        }
+    });
 
     var _player = new Player(_this, canvas);
     var _arena = new Arena(_this);
