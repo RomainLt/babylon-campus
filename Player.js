@@ -9,8 +9,7 @@ Player = function(game, canvas) {
 Player.prototype = {
   _initCamera: function(scene, canvas) {
     // On crée la caméra
-    this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(10, 1, 11), scene)
-
+    this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(-30, 1, -25), scene)
     // On demande à la caméra de regarder au point zéro de la scène
     this.camera.setTarget(BABYLON.Vector3.Zero())
 
@@ -18,7 +17,7 @@ Player.prototype = {
     this.camera.attachControl(canvas, true)
 
     this.camera.applyGravity = true
-    this.camera.ellipsoid = new BABYLON.Vector3(0.5, 0.5, 0.5)
+    this.camera.ellipsoid = new BABYLON.Vector3(0.2, 0.5, 0.2)
     this.scene.collisionsEnabled = true
     this.camera.checkCollisions = true
     this.camera.speed = 0.2
