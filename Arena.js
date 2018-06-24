@@ -29,7 +29,7 @@ Arena = function(game) {
   var hinge = new BABYLON.TransformNode("root")
   hinge.parent = scene
   hinge.position = new BABYLON.Vector3(-29.5, 1, -15)
-  door.position = new BABYLON.Vector3(-30, 1, -15)
+  door.position = new BABYLON.Vector3(-30, 1, -20)
   var matDoor = new BABYLON.StandardMaterial("matdoor", scene)
   matDoor.diffuseColor = new BABYLON.Color3(0.1, 0.1, 1)
   door.material = matDoor
@@ -90,7 +90,7 @@ Arena = function(game) {
   scene.gravity = new BABYLON.Vector3(0, -9.81, 0)
 
   var cafet = BABYLON.MeshBuilder.CreateBox("box", { height: 0.1, width: 0.1, size: 0.1 }, scene)
-  cafet.position = new BABYLON.Vector3(-15, 0, -20)
+  cafet.position = new BABYLON.Vector3(-15, -1, -28)
   var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, { loop: true, autoplay: true });
   soundCafet.volume = 1
   soundCafet.attachToMesh(cafet)
