@@ -9,7 +9,6 @@ Game = function(canvasId) {
 
     var music = new BABYLON.Sound("Music", "./audio/BrokeForFree-SummerSpliffs.mp3", _this.scene, null, { loop: true, autoplay: true });
     music.volume = 0.2
-    console.log(music)
 
     window.addEventListener("keydown", function(e) {
         switch (e.keyCode) {

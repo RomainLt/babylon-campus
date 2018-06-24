@@ -24,6 +24,7 @@ Arena = function(game) {
   var audio = new Audio("./audio/windows.wav")
 
   var door = BABYLON.MeshBuilder.CreateBox("box", { height: 2, width: 1, size: 0.1 }, scene)
+  door.position = new BABYLON.Vector3(-30, 1, -20)
   //   var hinge = BABYLON.MeshBuilder.CreateBox("hinge", {}, scene)
   var hinge = new BABYLON.TransformNode("root")
   hinge.parent = scene
@@ -94,12 +95,14 @@ Arena = function(game) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
     for (mesh of meshes) {
-      //   console.log(mesh)
+        // console.log(mesh)
+      if(mesh.name.includes("collision") || mesh.name.includes("sol") || mesh.name.includes("Plane")){
+        mesh.checkCollisions = true
+      }
       mesh.scaling.x = -1
       mesh.scaling.z = -1
-      mesh.checkCollisions = true
-      mesh.actionManager = new BABYLON.ActionManager(scene)
-      mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
+    //   mesh.actionManager = new BABYLON.ActionManager(scene)
+    //   mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
     }
   })
 }

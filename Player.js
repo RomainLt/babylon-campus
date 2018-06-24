@@ -17,7 +17,7 @@ Player.prototype = {
     this.camera.attachControl(canvas, true)
 
     this.camera.applyGravity = true
-    this.camera.ellipsoid = new BABYLON.Vector3(0.2, 0.5, 0.2)
+    this.camera.ellipsoid = new BABYLON.Vector3(0.2, 0.8, 0.2)
     this.scene.collisionsEnabled = true
     this.camera.checkCollisions = true
     this.camera.speed = 0.2
