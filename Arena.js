@@ -89,8 +89,14 @@ Arena = function(game) {
   )
   scene.gravity = new BABYLON.Vector3(0, -9.81, 0)
 
-  // The first parameter can be set to null to load all meshes and skeletons
+  var cafet = BABYLON.MeshBuilder.CreateBox("box", { height: 0.1, width: 0.1, size: 0.1 }, scene)
+  cafet.position = new BABYLON.Vector3(-15, 0, -20)
+  var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, { loop: true, autoplay: true });
+  soundCafet.volume = 1
+  soundCafet.attachToMesh(cafet)
 
+
+  // The first parameter can be set to null to load all meshes and skeletons
   BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan2.obj", scene, function(meshes, particleSystems, skeletons) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
