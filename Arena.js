@@ -23,67 +23,54 @@ Arena = function(game) {
   skybox.material = skyboxMaterial
   var audio = new Audio("./audio/windows.wav")
 
-  var door = BABYLON.MeshBuilder.CreateBox("box", { height: 2, width: 1, size: 0.1 }, scene)
-  door.position = new BABYLON.Vector3(-30, 1, -20)
-  //   var hinge = BABYLON.MeshBuilder.CreateBox("hinge", {}, scene)
-  var hinge = new BABYLON.TransformNode("root")
-  hinge.parent = scene
-  hinge.position = new BABYLON.Vector3(-29.5, 1, -15)
-  door.position = new BABYLON.Vector3(-30, 1, -20)
-  var matDoor = new BABYLON.StandardMaterial("matdoor", scene)
-  matDoor.diffuseColor = new BABYLON.Color3(0.1, 0.1, 1)
-  door.material = matDoor
-  door.checkCollisions = true
-  door.actionManager = new BABYLON.ActionManager(scene)
-  door.actionManager.registerAction(
+  var porte = BABYLON.MeshBuilder.CreateBox("porte", { height: 3.5, width: 1, depth: 0.1 }, scene)
+
+  // var porte = BABYLON.Mesh.CreateBox("porte", 8.0, scene);
+  porte.position = new BABYLON.Vector3(26, 0.5, 15)
+  porte.setPivotPoint(new BABYLON.Vector3(0.4, 0, 0))
+  var matPorte = new BABYLON.StandardMaterial("matPorte", scene)
+  matPorte.diffuseColor = new BABYLON.Color3(0.5, 0.1, 0)
+  porte.material = matPorte
+
+  //animation porte
+  var animationPorte = new BABYLON.Animation(
+    "ouverturePorte",
+    "rotation.y",
+    30,
+    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+    BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE
+  )
+  var keys = []
+
+  //At the animation key 0, the value of scaling is "1"
+  keys.push({
+    frame: 0,
+    value: 0
+  })
+
+  //At the animation key 20, the value of scaling is "0.2"
+  keys.push({
+    frame: 25,
+    value: 1.6
+  })
+
+  //At the animation key 100, the value of scaling is "1"
+  /* keys.push({
+          frame: 50,
+          value: 0
+      });*/
+  animationPorte.setKeys(keys)
+  porte.animations = []
+  porte.animations.push(animationPorte)
+  porte.actionManager = new BABYLON.ActionManager(scene)
+  porte.actionManager.registerAction(
     new BABYLON.ExecuteCodeAction(
       {
         trigger: BABYLON.ActionManager.OnPickTrigger,
         parameter: "r"
       },
       function() {
-        var pickResult = scene.pick(scene.pointerX, scene.pointerY)
-        // console.log(pickResult.hit)
-        if (pickResult.hit) {
-          var frameRate = 20
-          var sweep = new BABYLON.Animation(
-            "sweep",
-            "rotation.y",
-            frameRate,
-            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-          )
-
-          var sweep_keys = []
-
-          sweep_keys.push({
-            frame: 0,
-            value: 0
-          })
-
-          sweep_keys.push({
-            frame: 3 * frameRate,
-            value: 0
-          })
-
-          sweep_keys.push({
-            frame: 5 * frameRate,
-            value: Math.PI / 3
-          })
-
-          sweep_keys.push({
-            frame: 13 * frameRate,
-            value: Math.PI / 3
-          })
-
-          sweep_keys.push({
-            frame: 15 * frameRate,
-            value: 0
-          })
-
-          sweep.setKeys(sweep_keys)
-          scene.beginDirectAnimation(hinge, [sweep], 0, 25 * frameRate, false)
-        }
+        animation = scene.beginAnimation(porte, 0, 25, false)
       }
     )
   )
@@ -91,24 +78,23 @@ Arena = function(game) {
 
   var cafet = BABYLON.MeshBuilder.CreateBox("box", { height: 0.1, width: 0.1, size: 0.1 }, scene)
   cafet.position = new BABYLON.Vector3(-15, -1, -28)
-  var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, { loop: true, autoplay: true });
+  var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, { loop: true, autoplay: true })
   soundCafet.volume = 1
   soundCafet.attachToMesh(cafet)
-
 
   // The first parameter can be set to null to load all meshes and skeletons
   BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan2.obj", scene, function(meshes, particleSystems, skeletons) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
     for (mesh of meshes) {
-        // console.log(mesh)
-      if(mesh.name.includes("collision") || mesh.name.includes("sol") || mesh.name.includes("Plane")){
+      // console.log(mesh)
+      if (mesh.name.includes("collision") || mesh.name.includes("sol") || mesh.name.includes("Plane")) {
         mesh.checkCollisions = true
       }
       mesh.scaling.x = -1
       mesh.scaling.z = -1
-    //   mesh.actionManager = new BABYLON.ActionManager(scene)
-    //   mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
+      //   mesh.actionManager = new BABYLON.ActionManager(scene)
+      //   mesh.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionManager.OnPickTrigger, audio))
     }
   })
 }
