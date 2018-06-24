@@ -9,7 +9,7 @@ Player = function(game, canvas) {
 Player.prototype = {
   _initCamera: function(scene, canvas) {
     // On crée la caméra
-    this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(-30, 1, -25), scene)
+    this.camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(-30, 1, -20), scene)
     // On demande à la caméra de regarder au point zéro de la scène
     this.camera.setTarget(BABYLON.Vector3.Zero())
 
