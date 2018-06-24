@@ -8,10 +8,6 @@ Arena = function(game) {
   var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(-50, -100, -5), scene)
   light1.intensity = 5
   var light2 = new BABYLON.PointLight("pointLight2", new BABYLON.Vector3(50, 100, 5), scene)
-  // Ajoutons un sol pour situer la sphere dans l'espace
-  //var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
-  // Ajoutons un sol pour situer la sphere dans l'espace
-  //var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 
   var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene)
   var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene)
@@ -51,12 +47,6 @@ Arena = function(game) {
     frame: 25,
     value: 1.6
   })
-
-  //At the animation key 100, the value of scaling is "1"
-  /* keys.push({
-          frame: 50,
-          value: 0
-      });*/
   animationPorte.setKeys(keys)
   porte.animations = []
   porte.animations.push(animationPorte)
@@ -82,22 +72,21 @@ Arena = function(game) {
   )
   scene.gravity = new BABYLON.Vector3(0, -9.81, 0)
 
-  // var cafet = BABYLON.MeshBuilder.CreateBox("box", { height: 0.1, width: 0.1, size: 0.1 }, scene)
-  // cafet.position = new BABYLON.Vector3(-15, -1, -28)
-  // var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, {
-  //   loop: true,
-  //   autoplay: true,
-  //   spatialSound: true
-  // })
-  // soundCafet.volume = 1
-  // soundCafet.attachToMesh(cafet)
+  var cafet = BABYLON.MeshBuilder.CreateBox("box", { height: 0.1, width: 0.1, size: 0.1 }, scene)
+  cafet.position = new BABYLON.Vector3(-15, -1, -28)
+  var soundCafet = new BABYLON.Sound("cafet", "audio/bar.wav", scene, null, {
+    loop: true,
+    autoplay: true,
+    spatialSound: true
+  })
+  soundCafet.volume = 1
+  soundCafet.attachToMesh(cafet)
 
   // The first parameter can be set to null to load all meshes and skeletons
   BABYLON.SceneLoader.ImportMesh(null, "./obj/", "Plan3.obj", scene, function(meshes, particleSystems, skeletons) {
     // do something with the meshes and skeletons
     // particleSystems are always null for glTF assets
     for (mesh of meshes) {
-      // console.log(mesh)
       if (mesh.name.includes("collision") || mesh.name.includes("sol") || mesh.name.includes("Plane")) {
         mesh.checkCollisions = true
       }
